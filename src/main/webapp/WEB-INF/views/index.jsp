@@ -5,6 +5,6 @@
 	<jsp:param value="키사모" name="title" />
 </jsp:include>
 
-	메인^^
+	메인
 	
 <%@ include file="layout/footer.jsp" %>

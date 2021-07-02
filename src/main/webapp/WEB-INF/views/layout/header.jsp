@@ -16,7 +16,7 @@
 			<img src="">
 		</a>
 		<div class="logo_name">
-			<h1>키.사.모</h1>
+			<h1><a href="index.do">키.사.모</a></h1>
 			<p>키위를 사랑하는 모임</p>
 		</div>
 		<p class="member_info">

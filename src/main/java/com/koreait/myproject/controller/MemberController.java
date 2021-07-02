@@ -29,7 +29,7 @@ public class MemberController {
 		this.idCheckCommand = idCheckCommand;
 	}
 
-	@GetMapping(value="/")
+	@GetMapping(value= {"/", "index.do"})
 	public String index() {
 		return "index";
 	}

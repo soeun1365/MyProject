@@ -13,8 +13,32 @@
 		<org.aspectj-version>1.9.2</org.aspectj-version>
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
+	
 	<dependencies>
 	
+	<!-- 이메일인증 디펜던시 2개 : mail, spring-context-support -->
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+	<!-- 암호화 처리 -->
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.15</version>
+		</dependency>
+		
 	<!-- lombok : constructor/getter/setter -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>

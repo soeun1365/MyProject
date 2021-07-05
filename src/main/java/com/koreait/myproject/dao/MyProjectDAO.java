@@ -10,4 +10,5 @@ public interface MyProjectDAO {
 	public String showIdByEmail(String email);
 	public String showIdByNamePhone(Member member);
 	public int updatePw(Member member);
+	public int accountWithdraw(long mno);
 }

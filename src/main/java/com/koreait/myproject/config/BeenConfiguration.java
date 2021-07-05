@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import com.koreait.myproject.command.AccountWithdrawResult;
 import com.koreait.myproject.command.EmailAuthCommand;
 import com.koreait.myproject.command.IdCheckCommand;
 import com.koreait.myproject.command.JoinCommand;
@@ -71,5 +72,9 @@ public class BeenConfiguration {
 	@Bean
 	public UpdatePwCommand updatePwCommand() {
 		return new UpdatePwCommand();
+	}
+	@Bean
+	public AccountWithdrawResult accountWithdrawResult() {
+		return new AccountWithdrawResult();
 	}
 }

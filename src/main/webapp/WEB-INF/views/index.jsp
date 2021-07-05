@@ -17,6 +17,7 @@
 		text-align: center;
 	}
 	.img_box{
+		margin-top: 20px;
 		width: 100%;
 		display: flex;
 		justify-content: center;

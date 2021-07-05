@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.koreait.myproject.command.AccountWithdrawResult;
 import com.koreait.myproject.command.EmailAuthCommand;
 import com.koreait.myproject.command.IdCheckCommand;
 import com.koreait.myproject.command.JoinCommand;
@@ -42,6 +43,7 @@ public class MemberController {
 	private ShowIdByEmailCommand showIdByEmailCommand;
 	private ShowIdByNamePhone showIdByNamePhone;
 	private UpdatePwCommand updatePwCommand;
+	private AccountWithdrawResult accountWithdrawResult;
 	
 	//constructor
 	@Autowired
@@ -53,7 +55,8 @@ public class MemberController {
 							LogoutCommand logoutCommand,
 							ShowIdByEmailCommand showIdByEmailCommand,
 							ShowIdByNamePhone showIdByNamePhone,
-							UpdatePwCommand updatePwCommand) {
+							UpdatePwCommand updatePwCommand,
+							AccountWithdrawResult accountWithdrawResult) {
 		super();
 		this.sqlSession = sqlSession;
 		this.idCheckCommand = idCheckCommand;
@@ -64,6 +67,7 @@ public class MemberController {
 		this.showIdByEmailCommand = showIdByEmailCommand;
 		this.showIdByNamePhone = showIdByNamePhone;
 		this.updatePwCommand = updatePwCommand;
+		this.accountWithdrawResult = accountWithdrawResult;
 	}
 
 	@GetMapping(value= {"/", "index.do"})
@@ -186,5 +190,24 @@ public class MemberController {
 		model.addAttribute("response", response);
 		updatePwCommand.execute(sqlSession, model);
 		return loginPage();
+	}
+	
+	@GetMapping(value="accountWithdrawPage.do")
+	public String accountWithdrawPage() {
+		logger.info("accountWithdrawPage()");
+		return "member/accountWithdraw";
+	}
+	
+	@PostMapping(value="accountWithdrawResult.do")
+	public String accountWithdrawResult(HttpServletRequest request,
+										HttpServletResponse response,
+										Session session,
+										Model model) {
+		logger.info("accountWithdrawResult()");
+		model.addAttribute("request", request);
+		model.addAttribute("response", response);
+		accountWithdrawResult.execute(sqlSession, model);
+		//logoutCommand.execute(sqlSession, model);	//로그인정보 없애기 loginUser 세션에서 삭제
+		return "member/accountWithdrawResult";
 	}
 }

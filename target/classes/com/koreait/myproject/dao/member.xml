@@ -17,10 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="login" resultType="com.koreait.myproject.dto.Member">
-		SELECT ID, PW, NAME, PHONE, EMAIL, ADDRESS, REGDATE, M_STATE
+		SELECT MNO ID, PW, NAME, PHONE, EMAIL, ADDRESS, REGDATE, STATE
 		  FROM MEMBER
 		 WHERE ID = #{id}
-		   AND PW = #{pw}
+		   AND PW = #{pw}		<!-- 탈퇴한 회원은 로그인 불가능 / 아래 id="accountWithdrawResult"에서 탈퇴하면 STATe를 1로 변경시켰음 -->
 	</select>
 	
 	<select id="showIdByEmail" resultType="String">
@@ -40,5 +40,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE MEMBER
 		   SET PW = #{pw}
 		 WHERE EMAIL = #{email}
+	</update>
+	
+	<update id="accountWithdraw">
+		UPDATE MEMBER
+		   SET STATE = 1
+		 WHERE mno = ${mno}
 	</update>
 </mapper>

@@ -293,7 +293,7 @@
 		padding: 10px;
 		border: none;
 		outline: none;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #eed538;
 	}
 	#pw1, #pw2 , #name, #address{
 		width: 100%;

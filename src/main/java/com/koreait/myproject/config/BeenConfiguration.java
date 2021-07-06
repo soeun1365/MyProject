@@ -8,15 +8,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import com.koreait.myproject.command.AccountWithdrawResult;
-import com.koreait.myproject.command.EmailAuthCommand;
-import com.koreait.myproject.command.IdCheckCommand;
-import com.koreait.myproject.command.JoinCommand;
-import com.koreait.myproject.command.LoginCommand;
-import com.koreait.myproject.command.LogoutCommand;
-import com.koreait.myproject.command.ShowIdByEmailCommand;
-import com.koreait.myproject.command.ShowIdByNamePhone;
-import com.koreait.myproject.command.UpdatePwCommand;
+import com.koreait.myproject.command.member.AccountWithdrawResult;
+import com.koreait.myproject.command.member.DoubleEmailCommand;
+import com.koreait.myproject.command.member.EmailAuthCommand;
+import com.koreait.myproject.command.member.IdCheckCommand;
+import com.koreait.myproject.command.member.JoinCommand;
+import com.koreait.myproject.command.member.LoginCommand;
+import com.koreait.myproject.command.member.LogoutCommand;
+import com.koreait.myproject.command.member.ShowIdByEmailCommand;
+import com.koreait.myproject.command.member.ShowIdByNamePhone;
+import com.koreait.myproject.command.member.UpdatePwCommand;
+import com.koreait.myproject.command.member.VerifyEmailCommand;
 
 @Configuration
 public class BeenConfiguration {
@@ -46,6 +48,10 @@ public class BeenConfiguration {
 		return new IdCheckCommand();
 	}
 	@Bean
+	public DoubleEmailCommand doubleEmailCommand() {
+		return new DoubleEmailCommand();
+	}
+	@Bean
 	public JoinCommand joinCommand() {
 		return new JoinCommand();
 	}
@@ -68,6 +74,10 @@ public class BeenConfiguration {
 	@Bean
 	public ShowIdByNamePhone showIdByNamePhone() {
 		return new ShowIdByNamePhone();
+	}
+	@Bean
+	public VerifyEmailCommand verifyEmailCommand() {
+		return new VerifyEmailCommand();
 	}
 	@Bean
 	public UpdatePwCommand updatePwCommand() {

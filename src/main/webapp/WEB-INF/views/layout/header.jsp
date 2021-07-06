@@ -101,8 +101,7 @@
 			<img src="">
 		</a>
 		<div class="logo_name">
-			<h1><a href="index.do">키.사.모</a></h1>
-			<p>키위를 사랑하는 모임</p>
+			<h1><a href="index.do">KIWI</a></h1>
 		</div>
 		<div class="member_info">
 			<c:if test="${loginUser == null}">

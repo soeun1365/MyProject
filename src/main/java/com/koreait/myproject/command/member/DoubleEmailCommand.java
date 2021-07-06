@@ -1,5 +1,6 @@
-package com.koreait.myproject.command;
+package com.koreait.myproject.command.member;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +11,7 @@ import org.springframework.ui.Model;
 import com.koreait.myproject.dao.MyProjectDAO;
 import com.koreait.myproject.dto.Member;
 
-public class ShowIdByNamePhone implements MemberCommand {
+public class DoubleEmailCommand implements MemberCommand {
 
 	@Override
 	public Map<String, Object> execute(SqlSession sqlSession, Model model) {
@@ -18,19 +19,13 @@ public class ShowIdByNamePhone implements MemberCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-		
-		Member member = new Member();
-		member.setName(name);
-		member.setPhone(phone);
+		String email = request.getParameter("emial");
 		
 		MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
-		String id = myProjectDAO.showIdByNamePhone(member);
-		
-		if(id != null) {
-			model.addAttribute("id", id);
-		}
+		int count = myProjectDAO.doubleEmail(email);
+				
+		Map<String, Object> resultMap = new HashMap<>();
+		resultMap.put("count", count);
 		return null;
 	}
 

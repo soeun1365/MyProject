@@ -17,7 +17,7 @@
 				$('#pw').focus();
 				return false;
 			} else if($('#pw').val() != $('#UserPw').val()){
-				alert('비밀번호가 일치하지 않습니다.');
+				alert('비밀번호가 일치하지 않습니다. ');
 				return false;
 			} else{
 				$('#f').attr('action', 'accountWithdrawResult.do');
@@ -75,23 +75,16 @@
 <div class="loginContainer">
     <form id="f" method="post">
         <div class="inp_box">
-            <input type="text" id="id" name="id" placeholder="아이디" class="inp_text" value="${loinUser.id}">	
+            <input type="text" id="id" name="id" class="inp_text" value="${loginUser.id}" readonly>	
         </div>
         <div class="inp_box">
-            <input type="password" name="pw" id="pw" placeholder="비밀번호" class="inp_text">
+            <input type="password" id="pw" placeholder="비밀번호" class="inp_text">
         </div>
         <div class="inp_box">
             <input type="button" value="탈퇴하기" id="login_btn" class="inp_text">
         </div>
-    	<input type="text" value="${loginUser.mno}">
-        <input type="text" value="${loginUser.id}">
-    	<input type="text" value="${loginUser.pw}">
-        <input type="text" value="${loginUser.name}">
-    	<input type="text" value="${loginUser.phone}">
-    	<input type="text" value="${loginUser.email}">
-    	<input type="text" value="${loginUser.address}">
-    	<input type="text" value="${loginUser.regdate}">
-    	<input type="text" value="${loginUser.state}">
+    	<input type="hidden" name="mno" value="${loginUser.mno}">
+    	<input type="hidden" value="${loginUser.pw}" id="UserPw">
     </form>
 </div>
     

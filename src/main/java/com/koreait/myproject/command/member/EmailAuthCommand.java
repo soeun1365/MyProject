@@ -1,4 +1,4 @@
-package com.koreait.myproject.command;
+package com.koreait.myproject.command.member;
 
 import java.util.HashMap;
 import java.util.Map;

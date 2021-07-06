@@ -7,8 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import com.koreait.myproject.command.member.AccountWithdrawResult;
+import com.koreait.myproject.command.board.InsertGalleryBoardCommand;
+import com.koreait.myproject.command.member.AccountWithdrawResultCommand;
 import com.koreait.myproject.command.member.DoubleEmailCommand;
 import com.koreait.myproject.command.member.EmailAuthCommand;
 import com.koreait.myproject.command.member.IdCheckCommand;
@@ -43,6 +45,7 @@ public class BeenConfiguration {
 	public SqlSessionTemplate sqlSession() throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory());
 	}
+	// Member
 	@Bean
 	public IdCheckCommand idCheckCommand() {
 		return new IdCheckCommand();
@@ -84,7 +87,19 @@ public class BeenConfiguration {
 		return new UpdatePwCommand();
 	}
 	@Bean
-	public AccountWithdrawResult accountWithdrawResult() {
-		return new AccountWithdrawResult();
+	public AccountWithdrawResultCommand accountWithdrawResult() {
+		return new AccountWithdrawResultCommand();
+	}
+	// GalleryBoard
+	@Bean
+	public CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setDefaultEncoding("utf-8");
+		multipartResolver.setMaxUploadSize(1024 * 1024 * 10);  // 바이트 단위(10MB)
+		return multipartResolver;
+	}
+	@Bean
+	public InsertGalleryBoardCommand insertGalleryBoardCommand() {
+		return new InsertGalleryBoardCommand();
 	}
 }

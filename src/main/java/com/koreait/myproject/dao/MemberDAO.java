@@ -2,7 +2,7 @@ package com.koreait.myproject.dao;
 
 import com.koreait.myproject.dto.Member;
 
-public interface MyProjectDAO {
+public interface MemberDAO {
 	
 	public int idCheck(String id);
 	public int doubleEmail(String email);

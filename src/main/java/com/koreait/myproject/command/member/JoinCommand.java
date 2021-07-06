@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.myproject.dao.MyProjectDAO;
+import com.koreait.myproject.dao.MemberDAO;
 import com.koreait.myproject.dto.Member;
 
 public class JoinCommand {
@@ -40,7 +40,7 @@ public class JoinCommand {
 		member.setAddress(address);
 		
 		//DAO에서 실행
-		MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
+		MemberDAO myProjectDAO = sqlSession.getMapper(MemberDAO.class);
 		int count = myProjectDAO.join(member);
 		
 		response.setContentType("text/html; charset=utf-8"); 

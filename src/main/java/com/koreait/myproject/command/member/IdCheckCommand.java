@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.myproject.dao.MyProjectDAO;
+import com.koreait.myproject.dao.MemberDAO;
 
 public class IdCheckCommand implements MemberCommand{
 	
@@ -19,7 +19,7 @@ public class IdCheckCommand implements MemberCommand{
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String id = request.getParameter("id");
-		MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
+		MemberDAO myProjectDAO = sqlSession.getMapper(MemberDAO.class);
 		
 		int count = myProjectDAO.idCheck(id);
 		Map<String, Object> resultMap = new HashMap<String, Object>();

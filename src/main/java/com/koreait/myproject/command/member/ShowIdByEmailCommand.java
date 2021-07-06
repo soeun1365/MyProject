@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.myproject.dao.MyProjectDAO;
+import com.koreait.myproject.dao.MemberDAO;
 import com.koreait.myproject.dto.Member;
 
 public class ShowIdByEmailCommand implements MemberCommand {
@@ -22,7 +22,7 @@ public class ShowIdByEmailCommand implements MemberCommand {
 		Member member = new Member();
 		member.setEmail(email);
 		
-		MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
+		MemberDAO myProjectDAO = sqlSession.getMapper(MemberDAO.class);
 		String id = myProjectDAO.showIdByEmail(email);
 		
 		if(id != null) {

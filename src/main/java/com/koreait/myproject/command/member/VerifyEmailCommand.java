@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.myproject.dao.MyProjectDAO;
+import com.koreait.myproject.dao.MemberDAO;
 import com.koreait.myproject.dto.Member;
 
 public class VerifyEmailCommand implements MemberCommand {
@@ -25,7 +25,7 @@ public class VerifyEmailCommand implements MemberCommand {
 			Member member = new Member();
 			member.setEmail(email);
 			
-			MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
+			MemberDAO myProjectDAO = sqlSession.getMapper(MemberDAO.class);
 			int state = myProjectDAO.verifyEmail(email);
 			
 			resultMap.put("state", state);

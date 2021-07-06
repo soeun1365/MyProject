@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.koreait.myproject.command.member.AccountWithdrawResult;
+import com.koreait.myproject.command.member.AccountWithdrawResultCommand;
 import com.koreait.myproject.command.member.DoubleEmailCommand;
 import com.koreait.myproject.command.member.EmailAuthCommand;
 import com.koreait.myproject.command.member.IdCheckCommand;
@@ -44,7 +44,7 @@ public class MemberController {
 	private ShowIdByEmailCommand showIdByEmailCommand;
 	private ShowIdByNamePhone showIdByNamePhone;
 	private UpdatePwCommand updatePwCommand;
-	private AccountWithdrawResult accountWithdrawResult;
+	private AccountWithdrawResultCommand accountWithdrawResult;
 	private VerifyEmailCommand verifyEmailCommand;
 	private DoubleEmailCommand doubleEmailCommand;
 	
@@ -59,7 +59,7 @@ public class MemberController {
 							ShowIdByEmailCommand showIdByEmailCommand,
 							ShowIdByNamePhone showIdByNamePhone,
 							UpdatePwCommand updatePwCommand,
-							AccountWithdrawResult accountWithdrawResult,
+							AccountWithdrawResultCommand accountWithdrawResult,
 							VerifyEmailCommand verifyEmailCommand,
 							DoubleEmailCommand doubleEmailCommand) {
 		super();

@@ -9,10 +9,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.myproject.dao.MyProjectDAO;
+import com.koreait.myproject.dao.MemberDAO;
 import com.koreait.myproject.dto.Member;
 
-public class AccountWithdrawResult implements MemberCommand {
+public class AccountWithdrawResultCommand implements MemberCommand {
 
 	@Override
 	public Map<String, Object> execute(SqlSession sqlSession, Model model) {
@@ -27,7 +27,7 @@ public class AccountWithdrawResult implements MemberCommand {
 		Member member = new Member();
 		member.setId(id);
 		
-		MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
+		MemberDAO myProjectDAO = sqlSession.getMapper(MemberDAO.class);
 		myProjectDAO.accountWithdraw(id);
 		
 		try {

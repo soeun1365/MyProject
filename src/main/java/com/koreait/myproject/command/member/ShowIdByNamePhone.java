@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.myproject.dao.MyProjectDAO;
+import com.koreait.myproject.dao.MemberDAO;
 import com.koreait.myproject.dto.Member;
 
 public class ShowIdByNamePhone implements MemberCommand {
@@ -25,7 +25,7 @@ public class ShowIdByNamePhone implements MemberCommand {
 		member.setName(name);
 		member.setPhone(phone);
 		
-		MyProjectDAO myProjectDAO = sqlSession.getMapper(MyProjectDAO.class);
+		MemberDAO myProjectDAO = sqlSession.getMapper(MemberDAO.class);
 		String id = myProjectDAO.showIdByNamePhone(member);
 		
 		if(id != null) {
